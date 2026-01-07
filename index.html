@@ -7,15 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CHANGEMENT ICI : Fond passé de #050505 à #121212 (plus doux) */
         body { font-family: 'Inter', sans-serif; background-color: #121212; }
         
-        /* Effet de lueur ajusté pour le nouveau fond */
         .glow-effect {
             background: radial-gradient(circle, rgba(181,237,217,0.12) 0%, rgba(18,18,18,0) 70%);
         }
         
-        /* Animation d'apparition */
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
@@ -72,7 +69,8 @@
         <div id="demo" class="relative z-10 w-full max-w-[400px] h-[750px] bg-[#121212] rounded-[40px] border-[8px] border-zinc-800 shadow-2xl overflow-hidden fade-in-up delay-300 ring-1 ring-white/10">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 h-7 w-32 bg-zinc-800 rounded-b-2xl z-20"></div>
             
-            <div class="absolute top-2 left-6 text-[10px] font-bold text-white z-20">14:32</div>
+            <div id="phone-clock" class="absolute top-2 left-6 text-[10px] font-bold text-white z-20 w-10 text-center">--:--</div>
+            
             <div class="absolute top-2 right-6 flex gap-1 z-20">
                 <div class="w-4 h-2.5 border border-white rounded-[2px] relative"><div class="absolute inset-0.5 bg-white"></div></div>
             </div>
@@ -90,5 +88,19 @@
         </div>
 
     </main>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('phone-clock').textContent = `${hours}:${minutes}`;
+        }
+        
+        // Lancer tout de suite
+        updateClock();
+        // Mettre à jour chaque seconde pour être précis
+        setInterval(updateClock, 1000);
+    </script>
 </body>
 </html>
