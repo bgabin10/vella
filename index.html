@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vella - L'IA Assistant Capillaire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CHANGEMENT ICI : Fond passé de #050505 à #121212 (plus doux) */
+        body { font-family: 'Inter', sans-serif; background-color: #121212; }
+        
+        /* Effet de lueur ajusté pour le nouveau fond */
+        .glow-effect {
+            background: radial-gradient(circle, rgba(181,237,217,0.12) 0%, rgba(18,18,18,0) 70%);
+        }
+        
+        /* Animation d'apparition */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col">
+
+    <header class="fixed w-full top-0 z-50 bg-[#121212]/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex flex-col items-start">
+                <h1 class="text-3xl font-bold tracking-tighter text-white leading-none">Vella</h1>
+                <span class="text-[10px] uppercase tracking-[0.3em] text-[#B5EDD9] opacity-90">Haircare assistant</span>
+            </div>
+            
+            <a href="#demo" class="hidden md:block px-6 py-2 rounded-full border border-[#B5EDD9]/30 text-[#E2FFF8] text-sm hover:bg-[#B5EDD9]/10 transition-colors">
+                Concept
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-32 pb-20 px-4 relative overflow-hidden flex flex-col items-center">
+        
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] glow-effect z-0 pointer-events-none"></div>
+
+        <div class="text-center z-10 max-w-2xl mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#B5EDD9]/5 border border-[#B5EDD9]/20 text-[#B5EDD9] text-xs font-medium mb-6 fade-in-up">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B5EDD9] opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-[#B5EDD9]"></span>
+                </span>
+                Moteur IA
+            </div>
+            
+            <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 fade-in-up delay-100">
+                L'Expertise Capillaire <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#B5EDD9] to-[#E2FFF8]">Réinventée par l'IA.</span>
+            </h2>
+            
+            <p class="text-zinc-400 text-lg md:text-xl fade-in-up delay-200">
+                Ne devinez plus. Vella analyse votre visage et vos cheveux pour vous offrir des conseils de pro, instantanément.
+            </p>
+        </div>
+
+        <div id="demo" class="relative z-10 w-full max-w-[400px] h-[750px] bg-[#121212] rounded-[40px] border-[8px] border-zinc-800 shadow-2xl overflow-hidden fade-in-up delay-300 ring-1 ring-white/10">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 h-7 w-32 bg-zinc-800 rounded-b-2xl z-20"></div>
+            
+            <div class="absolute top-2 left-6 text-[10px] font-bold text-white z-20">14:32</div>
+            <div class="absolute top-2 right-6 flex gap-1 z-20">
+                <div class="w-4 h-2.5 border border-white rounded-[2px] relative"><div class="absolute inset-0.5 bg-white"></div></div>
+            </div>
+
+            <iframe 
+                src="https://iahair.netlify.app" 
+                class="w-full h-full bg-[#121212]"
+                frameborder="0"
+                allow="camera; microphone; clipboard-read; clipboard-write"
+            ></iframe>
+        </div>
+
+        <div class="mt-20 text-center text-zinc-600 text-sm z-10">
+            <p>© 2026 Vella IA. Designed by Gabin for Pitch Demo.</p>
+        </div>
+
+    </main>
+</body>
+</html>
